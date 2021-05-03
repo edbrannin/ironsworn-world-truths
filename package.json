@@ -14,8 +14,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "js-yaml src/ironsworn-truths.yaml > src/ironsworn-truths.json; react-scripts start",
+    "build": "js-yaml src/ironsworn-truths.yaml > src/ironsworn-truths.json; react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -36,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

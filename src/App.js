@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import Editor from './Editor';
 import Truths from './Truths';
+import truths from './ironsworn-truths';
+import { useState } from 'react';
 
 function App() {
-  const [truths, setTruths] = useState([]);
+  const [ choices, setChoices ] = useState({});
+  const setChoice = (name, value) => setChoices({
+    ...choices,
+    [name]: value,
+  });
+
   return (
     <div>
-      <h1>Ironsworn World Truths</h1>
-      <Editor truths={truths} setTruths={setTruths} />
-      <Truths></Truths>
+      <Truths truths={truths} choices={choices} setChoice={setChoice}></Truths>
     </div>
   );
 }
