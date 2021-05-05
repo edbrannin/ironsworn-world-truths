@@ -48,8 +48,13 @@ const HiddenQuestStarter = styled.p`
   }
 `;
 
-const QuestStarter = ({ children }) => {
+const QuestStarter = ({ clickToHide = true, children }) => {
   const [ show, setShow ] = useState(true);
+  if (!clickToHide) {
+    return (
+      <QuestStarterStyle>{children}</QuestStarterStyle>
+    )
+  }
   if (show) {
     return (
       <QuestStarterStyle onClick={() => setShow(false)}>{children}</QuestStarterStyle>
@@ -128,7 +133,7 @@ const TruthCategory = ({ name, options, choice, setChoice }) => {
         {options.map(({ description, questStarter }, index) => (
           <Choice key={index}>
             <Description>{description}</Description>
-            <QuestStarter>{questStarter}</QuestStarter>
+            <QuestStarter clickToHide={false}>{questStarter}</QuestStarter>
             <SelectButton onClick={() => setChoice(index)}>Select</SelectButton>
           </Choice>
         ))}
