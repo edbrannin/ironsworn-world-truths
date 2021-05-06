@@ -8,17 +8,29 @@ const SiteHeader = styled.h1`
   text-align: center;
 `;
 
-const Usage = styled.div`
-  @media print {
-    display: none;
-  }
-  text-align: center;
-`;
-
 const Footer = styled.div`
   text-align: center;
   padding: 1em;
 `;
+
+const OnlyScreen = styled.div`
+  @media print {
+    display: none;
+  }
+`;
+
+const OnlyPrint = styled.div`
+  @media screen {
+    display: none;
+  }
+`;
+
+const Usage = styled(OnlyScreen)`
+  text-align: center;
+`;
+
+
+const GITHUB_PATH = 'https://github.com/edbrannin/ironsworn-world-truths';
 
 function App() {
   const [ choices, setChoices ] = useState({});
@@ -37,11 +49,26 @@ function App() {
       </Usage>
       <Truths truths={truths} choices={choices} setChoice={setChoice}></Truths>
       <Footer>
-        <a href="https://www.ironswornrpg.com/">Ironsworn World Workbook</a>
-        {' '}
-        by Shawn Tomkin is licensed under
-        {' '}
-        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        <p>
+          <a href="https://www.ironswornrpg.com/">Ironsworn World Workbook</a>
+          {' '}
+          by Shawn Tomkin is licensed under
+          {' '}
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        </p>
+        <OnlyScreen>
+          <p>
+            <a href={GITHUB_PATH}>
+              <img
+                alt="GitHub Project"
+                src={process.env.PUBLIC_URL + '/GitHub-Mark-64px.png'}
+              />
+            </a>
+          </p>
+        </OnlyScreen>
+        <OnlyPrint>
+          Produced at <tt>{window.location.href}</tt>
+        </OnlyPrint>
       </Footer>
     </div>
   );
