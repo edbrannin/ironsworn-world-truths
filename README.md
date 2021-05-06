@@ -1,4 +1,4 @@
-Generate 
+Choose World Truths in Ironsworn and make a nice printout.
 
 ## Credits
 
@@ -10,7 +10,7 @@ The text of this work is licensed under the Creative Commons Attribution- NonCom
 
 ### Similar Projects
 
-I found 2 similar things, but I wanted to be able to pick frome ach category, rather than only get random values.
+I found 2 similar things, but I wanted to be able to pick from each category, rather than only get random values.
 
 * https://chartopia.d12dev.com/chart/4440/
 * https://perchance.org/ironsworn-world-truths
